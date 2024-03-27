@@ -50,7 +50,7 @@ const ProductsPage = ({ products }) => {
         <nav>
           <UlStyle>
             <li>
-              <Button href="#" onClick={prevPage} black>
+              <Button href="#" onClick={prevPage}>
                 {"<<"}
               </Button>
             </li>
@@ -62,7 +62,7 @@ const ProductsPage = ({ products }) => {
               </li>
             ))}
             <li>
-              <Button href="#" onClick={nextPage} black>
+              <Button href="#" onClick={nextPage}>
                 {">>"}
               </Button>
             </li>

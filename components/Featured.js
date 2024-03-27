@@ -5,6 +5,8 @@ import ButtonLink from "./ButtonLink";
 import CartIcon from "./icons/CartIIcon";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const FeaturedProductImage = styled.img`
   width: auto;
@@ -64,10 +66,11 @@ const ButtonsWrapper = styled.div`
 
 const Featured = ({ product }) => {
   const { addProduct } = useContext(CartContext);
+  const notify = () => toast("Производот е додаден во корпа!");
   const addFeaturedToCart = () => {
     addProduct(product._id);
+    notify();
   };
-  console.log(product);
   return (
     <Bg>
       <Center>

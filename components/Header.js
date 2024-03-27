@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Center from "../components/Center";
 import { useContext, useState } from "react";
 import { CartContext } from "../components/CartContext";
@@ -49,22 +49,43 @@ const NavLink = styled(Link)`
   color: #aaa;
   text-decoration: none;
   padding: 10px 0;
+  align-content: center;
   @media screen and (min-width: 768px) {
     padding: 0;
   }
+  ${(props) =>
+    props.flex &&
+    css`
+      display: flex;
+      width: 40px;
+      height: 30px;
+      align-items: center;
+    `}
+`;
+const CartAndBars = styled.div`
+  display: flex;
 `;
 const NavButton = styled.button`
   background-color: transparent;
-  width: 30px;
+  width: 35px;
   height: 30px;
   border: 0;
-  color: white;
+  color: #aaa;
   cursor: pointer;
   position: relative;
   z-index: 3;
   @media screen and (min-width: 768px) {
     display: none;
   }
+  ${(props) =>
+    props.flex &&
+    css`
+      display: flex;
+      width: 50px;
+      height: 30px;
+      align-items: center;
+      justify-content: space-between;
+    `}
 `;
 
 export default function Header() {
@@ -74,18 +95,31 @@ export default function Header() {
     <StyledHeader>
       <Center>
         <Wrapper>
-          <Logo href={"/"}>Аптека Базилика</Logo>
-          <StyledNav mobileNavActive={mobileNavActive}>
-            <NavLink href={"/"}>Дома</NavLink>
-            <NavLink href={"/products"}>Производи</NavLink>
-            {/* <NavLink href={"/categories"}>Categories</NavLink> */}
-            {/* <NavLink href={"/account"}>Account</NavLink> */}
-            <NavLink href={"/contact"}>Контакт</NavLink>
-            <NavLink href={"/cart"}>Корпа ({cartProducts.length})</NavLink>
-          </StyledNav>
-          <NavButton onClick={() => setMobileNavActive((prev) => !prev)}>
-            <BarsIcon />
-          </NavButton>
+          <div>
+            <Logo href={"/"}>Аптека Базилика</Logo>
+          </div>
+          <div>
+            <StyledNav mobileNavActive={mobileNavActive}>
+              <NavLink href={"/"}>Дома</NavLink>
+              <NavLink href={"/products"}>Производи</NavLink>
+              {/* <NavLink href={"/categories"}>Categories</NavLink> */}
+              {/* <NavLink href={"/account"}>Account</NavLink> */}
+              <NavLink href={"/contact"}>Контакт</NavLink>
+              <NavLink href={"/cart"} flex>
+                <CartIcon /> ({cartProducts.length})
+              </NavLink>
+            </StyledNav>
+            <CartAndBars>
+              <Link href={"/cart"}>
+                <NavButton flex>
+                  <CartIcon />({cartProducts.length})
+                </NavButton>
+              </Link>
+              <NavButton onClick={() => setMobileNavActive((prev) => !prev)}>
+                <BarsIcon />
+              </NavButton>
+            </CartAndBars>
+          </div>
         </Wrapper>
       </Center>
     </StyledHeader>
