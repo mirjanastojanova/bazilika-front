@@ -81,11 +81,16 @@ export const ButtonStyle = css`
     props.black &&
     props.outline &&
     props.flexButton &&
+    props.block &&
     css`
+      display: flex;
+      justify-content: center;
       background-color: transparent;
       border: 1px solid #000;
       color: #000;
-      padding-left: 17px;
+      @media screen and (min-width: 768px) {
+        width: 150px;
+      }
     `}
 `;
 
@@ -94,7 +99,11 @@ const StyledButton = styled.button`
 `;
 
 const Button = ({ children, ...rest }) => {
-  return <StyledButton {...rest}>{children}</StyledButton>;
+  return (
+    <StyledButton{...rest}>
+      {children}
+    </StyledButton>
+  );
 };
 
 export default Button;

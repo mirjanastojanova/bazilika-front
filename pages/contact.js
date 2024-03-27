@@ -23,7 +23,7 @@ const Contact = () => {
             <b>Е-мејл адреса:</b> bazilika.apteka@gmail.com
           </p>
           <p>
-            <b>Локацијa:</b> Jani Lukrovski br 5 lokal 10b
+            <b>Локацијa:</b> ул.Јани Лукровски бр.5 лок.10 Б
           </p>
         </div>
         <section>

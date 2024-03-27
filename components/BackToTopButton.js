@@ -11,6 +11,7 @@ const Button = styled.button`
   background-color: #222;
   color: white;
   border: 0;
+  cursor: pointer;
   @media screen and (min-width: 768px) {
     .button {
       position: fixed;
@@ -22,6 +23,7 @@ const Button = styled.button`
       background-color: #d20000;
       color: white;
       border: 0;
+      cursor: pointer;
     }
   }
 `;

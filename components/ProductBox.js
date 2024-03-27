@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import CartIcon from "./icons/CartIIcon";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProductWrapper = styled.div`
   display: flex;
@@ -65,6 +67,7 @@ const Price = styled.div`
 const ProductBox = ({ _id, title, description, price, images }) => {
   const { addProduct } = useContext(CartContext);
   const url = "/product/" + _id;
+  const notify = () => toast("Производот е додаден во корпа!");
   return (
     <ProductWrapper>
       <WhiteBox href={url}>
@@ -76,7 +79,16 @@ const ProductBox = ({ _id, title, description, price, images }) => {
         <Title href={url}>{title}</Title>
         <PriceRow>
           <Price>{price}ден.</Price>
-          <Button block onClick={() => addProduct(_id)} black outline flexButton>
+          <Button
+            onClick={() => {
+              addProduct(_id);
+              notify();
+            }}
+            black
+            outline
+            flexButton
+            block
+          >
             <CartIcon /> Додади во корпа
           </Button>
         </PriceRow>

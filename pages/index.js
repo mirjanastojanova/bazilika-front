@@ -1,3 +1,4 @@
+import { ToastContainer } from "react-toastify";
 import { BackToTopButton } from "../components/BackToTopButton";
 import Featured from "../components/Featured";
 import Header from "../components/Header";
@@ -9,13 +10,24 @@ export default function HomePage({ featuredProduct, newProducts }) {
   return (
     <div>
       <Header />
+      <ToastContainer
+        position="top-right"
+        autoClose={1000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick={true}
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        pauseOnHover={false}
+        theme="light"
+      />
       <Featured product={featuredProduct} />
       <NewProducts products={newProducts} />
       <BackToTopButton />
     </div>
   );
 }
-
 
 // using it as a function from Next JS as you need data on request
 export const getServerSideProps = async () => {
