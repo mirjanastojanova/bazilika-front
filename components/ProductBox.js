@@ -11,6 +11,10 @@ const ProductWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* border: #222 1px solid;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: blue; */
 `;
 
 const WhiteBox = styled(Link)`

@@ -5,8 +5,10 @@ import Header from "../components/Header";
 import NewProducts from "../components/NewProducts";
 import { mongooseConnect } from "../lib/mongoose";
 import { Product } from "../models/Product";
+import Actions from "../components/Actions";
+import { Action } from "../models/Action";
 
-export default function HomePage({ featuredProduct, newProducts }) {
+export default function HomePage({ featuredProduct, newProducts, actions }) {
   return (
     <div>
       <Header />
@@ -23,6 +25,7 @@ export default function HomePage({ featuredProduct, newProducts }) {
         theme="light"
       />
       <Featured product={featuredProduct} />
+      <Actions actions={actions} />
       <NewProducts products={newProducts} />
       <BackToTopButton />
     </div>
@@ -38,10 +41,15 @@ export const getServerSideProps = async () => {
     sort: { _id: -1 },
     limit: 10,
   }); // -1 to be in descending order
+  const actions = await Action.find({}, null, {
+    sort: { _id: -1 },
+    limit: 10,
+  }); // -1 to be in descending order
   return {
     props: {
       featuredProduct: JSON.parse(JSON.stringify(featuredProduct)),
       newProducts: JSON.parse(JSON.stringify(newProducts)),
+      actions: JSON.parse(JSON.stringify(actions)),
     },
   };
 };
