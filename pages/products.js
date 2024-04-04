@@ -62,25 +62,25 @@ const ProductsPage = ({ products }) => {
     <>
       <Header />
       <Center>
-        <Title>Сите производи</Title>
+        <Title>СИТЕ ПРОИЗВОДИ</Title>
         <Input search={handleChange}/>
         <ProductsGrid products={filtered} />
         <nav>
           <UlStyle>
             <li>
-              <Button href="#" onClick={prevPage}>
+              <Button href="#" onClick={prevPage} white>
                 {"<<"}
               </Button>
             </li>
             {numbers.map((n, i) => (
               <li key={i}>
-                <Button href="#" onClick={() => changeCurrentPage(n)}>
+                <Button href="#" onClick={() => changeCurrentPage(n)} white>
                   {n}
                 </Button>
               </li>
             ))}
             <li>
-              <Button href="#" onClick={nextPage}>
+              <Button href="#" onClick={nextPage} white>
                 {">>"}
               </Button>
             </li>

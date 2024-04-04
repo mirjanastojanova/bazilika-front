@@ -1,19 +1,23 @@
 import Link from "next/link";
 import styled, { css } from "styled-components";
 import Center from "../components/Center";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { CartContext } from "../components/CartContext";
 import BarsIcon from "../components/icons/Bars";
 import CartIcon from "./icons/CartIIcon";
 
 const StyledHeader = styled.header`
-  background-color: #222;
+  background-color: white;
+  border-bottom: 1px solid #dddddd;
 `;
 const Logo = styled(Link)`
   color: #fff;
   text-decoration: none;
   position: relative;
   z-index: 3;
+  img {
+    width: 150px;
+  }
 `;
 const Wrapper = styled.div`
   display: flex;
@@ -25,7 +29,11 @@ const StyledNav = styled.nav`
   ${(props) =>
     props.mobileNavActive
       ? `
-    display: block;
+    display: flex;
+    flex-direction: column;
+    margin-top:50px;
+    height: 200px;
+    border-bottom:1px solid #211e51;
   `
       : `
     display: none;
@@ -37,7 +45,7 @@ const StyledNav = styled.nav`
   left: 0;
   right: 0;
   padding: 70px 20px 20px;
-  background-color: #222;
+  background-color: white;
   @media screen and (min-width: 768px) {
     display: flex;
     position: static;
@@ -46,7 +54,8 @@ const StyledNav = styled.nav`
 `;
 const NavLink = styled(Link)`
   display: block;
-  color: #aaa;
+  color: #211e51;
+  font-weight: 700;
   text-decoration: none;
   padding: 10px 0;
   align-content: center;
@@ -65,15 +74,20 @@ const NavLink = styled(Link)`
 const CartAndBars = styled.div`
   display: flex;
 `;
+const LinkCart = styled(Link)`
+  text-decoration: none;
+`;
 const NavButton = styled.button`
   background-color: transparent;
-  width: 35px;
+  width: 40px;
   height: 30px;
   border: 0;
-  color: #aaa;
+  color: #211e51;
+  font-weight: 700;
   cursor: pointer;
   position: relative;
   z-index: 3;
+
   @media screen and (min-width: 768px) {
     display: none;
   }
@@ -91,30 +105,58 @@ const NavButton = styled.button`
 export default function Header() {
   const { cartProducts } = useContext(CartContext);
   const [mobileNavActive, setMobileNavActive] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMobileNavActive(false);
+      }
+    };
+
+    const handleScroll = () => {
+      setMobileNavActive(false);
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <StyledHeader>
       <Center>
         <Wrapper>
           <div>
-            <Logo href={"/"}>Аптека Базилика</Logo>
+            <Logo href={"/"}>
+              <img src="https://res.cloudinary.com/dqgachhdt/image/upload/v1711112415/hoqdfgoh9vf1dift6doy.webp" />
+            </Logo>
           </div>
           <div>
             <StyledNav mobileNavActive={mobileNavActive}>
-              <NavLink href={"/"}>Дома</NavLink>
-              <NavLink href={"/products"}>Производи</NavLink>
+              <NavLink href={"/"}>ДОМА</NavLink>
+              <NavLink href={"/products"}>ПРОИЗВОДИ</NavLink>
               {/* <NavLink href={"/categories"}>Categories</NavLink> */}
               {/* <NavLink href={"/account"}>Account</NavLink> */}
-              <NavLink href={"/contact"}>Контакт</NavLink>
-              <NavLink href={"/cart"} flex>
-                <CartIcon /> ({cartProducts.length})
-              </NavLink>
+              <NavLink href={"/contact"}>КОНТАКТ</NavLink>
             </StyledNav>
+          </div>
+          
+          <div>
+          <StyledNav>
+            <NavLink href={"/cart"} flex>
+              <CartIcon /> ({cartProducts.length})
+            </NavLink>
+          </StyledNav>
             <CartAndBars>
-              <Link href={"/cart"}>
+              <LinkCart href={"/cart"}>
                 <NavButton flex>
-                  <CartIcon />({cartProducts.length})
+                  <CartIcon /> ({cartProducts.length})
                 </NavButton>
-              </Link>
+              </LinkCart>
               <NavButton onClick={() => setMobileNavActive((prev) => !prev)}>
                 <BarsIcon />
               </NavButton>

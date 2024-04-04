@@ -14,7 +14,7 @@ const Contact = () => {
     <>
       <Header />
       <Center>
-        <Title>Контакт</Title>
+        <Title>КОНТАКТ</Title>
         <div>
           <p>
             <b>Телефонски број:</b> 02 317 13 13

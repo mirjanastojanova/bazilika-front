@@ -5,10 +5,13 @@ const Image = styled.img`
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
 `;
 const MainImage = styled.img`
   max-width: 100%;
   max-height: 200px;
+  border-bottom: 1px solid #dddddd;
 `;
 const ImageButtons = styled.div`
   display: flex;

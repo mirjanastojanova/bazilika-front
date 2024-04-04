@@ -11,10 +11,13 @@ const ProductWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* border: #222 1px solid;
+  border: 1px solid #dddddd;
   border-radius: 10px;
   padding: 10px;
-  background-color: blue; */
+  @media screen and (min-width: 768px) {
+    width: 100%;
+    height: 280px;
+  }
 `;
 
 const WhiteBox = styled(Link)`
@@ -30,18 +33,25 @@ const WhiteBox = styled(Link)`
     max-width: 100%;
     max-height: 80px;
   }
+  @media screen and (min-width: 768px) {
+    img {
+      max-width: 100%;
+      max-height: 160px;
+    }
+  }
 `;
 
 const Title = styled(Link)`
-  font-weight: normal;
-  font-size: 0.9rem;
-  color: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  color:#0C356A;
   text-decoration: none;
-  margin: 0;
+  border-top: 1px solid #dddddd;
+  padding-top: 5px;
 `;
 
 const ProductInfoBox = styled.div`
-  margin-top: 10px;
+  /* margin-top: 10px; */
 `;
 
 const PriceRow = styled.div`
@@ -54,6 +64,7 @@ const PriceRow = styled.div`
     gap: 5px;
     grid-template-columns: 1fr 1fr;
     align-items: end;
+    margin: 0;
   }
 `;
 
@@ -61,6 +72,7 @@ const Price = styled.div`
   font-size: 1rem;
   font-weight: 600;
   text-align: left;
+  color: #211e51;
   @media screen and (min-width: 768px) {
     font-size: 1.2rem;
     font-weight: 600;
@@ -79,8 +91,8 @@ const ProductBox = ({ _id, title, description, price, images }) => {
           <img src={images?.[0]} alt="" />
         </div>
       </WhiteBox>
+      <Title href={url}>{title}</Title>
       <ProductInfoBox>
-        <Title href={url}>{title}</Title>
         <PriceRow>
           <Price>{price}ден.</Price>
           <Button
@@ -88,8 +100,6 @@ const ProductBox = ({ _id, title, description, price, images }) => {
               addProduct(_id);
               notify();
             }}
-            black
-            outline
             flexButton
             block
           >

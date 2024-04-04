@@ -24,16 +24,16 @@ export const ButtonStyle = css`
     props.white &&
     !props.outline &&
     css`
-      background-color: #fff;
-      color: #000;
+      background-color: #001B79; 
+      color: white;
     `}
   ${(props) =>
     props.white &&
     props.outline &&
     css`
       background-color: transparent;
-      color: #fff;
-      border: 1px solid #fff;
+      color: #211e51;
+      border: 1px solid #211e51;
     `}
   ${(props) =>
     props.black &&
@@ -78,16 +78,15 @@ export const ButtonStyle = css`
       }
     `}
     ${(props) =>
-    props.black &&
-    props.outline &&
     props.flexButton &&
     props.block &&
     css`
       display: flex;
       justify-content: center;
-      background-color: transparent;
-      border: 1px solid #000;
-      color: #000;
+      background-color: #001B79;
+      border: 1px solid #001B79;
+      color: white;
+      font-weight: 700;
       @media screen and (min-width: 768px) {
         width: 150px;
       }

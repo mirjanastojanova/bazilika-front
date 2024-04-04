@@ -5,7 +5,7 @@ import ProductsGrid from "./ProductsGrid";
 const Actions = ({ actions }) => {
   return (
     <Center>
-      <Title>Акции</Title>
+      <Title>АКЦИИ</Title>
       <ProductsGrid products={actions} />
     </Center>
   );

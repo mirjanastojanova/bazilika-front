@@ -20,6 +20,10 @@ const ColWrapper = styled.div`
   gap: 40px;
   margin: 40px 0;
 `;
+const Text = styled.span`
+  border-left: 1px solid #dddddd;
+  padding-left: 25px;
+`;
 
 const PriceRow = styled.div`
   display: flex;
@@ -30,6 +34,7 @@ const PriceRow = styled.div`
 const Price = styled.span`
   font-size: 1.5rem;
   font-weight: 700;
+  color: #211e51;
 `;
 
 const ProductPage = ({ product }) => {
@@ -42,19 +47,23 @@ const ProductPage = ({ product }) => {
           <Box>
             <ProductImages images={product.images} />
           </Box>
-          <div>
+          <Text>
             <Title>{product.title}</Title>
             <p>{product.description}</p>
             <PriceRow>
               <Price>{product.price}ден.</Price>
               <div>
-                <Button black outline onClick={() => addProduct(product._id)}>
+                <Button
+                  flexButton
+                  block
+                  onClick={() => addProduct(product._id)}
+                >
                   <CartIcon />
                   Додади во корпа
                 </Button>
               </div>
             </PriceRow>
-          </div>
+          </Text>
         </ColWrapper>
       </Center>
     </>
