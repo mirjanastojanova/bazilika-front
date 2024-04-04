@@ -7,6 +7,7 @@ import Title from "../components/Title";
 import { useState } from "react";
 import styled from "styled-components";
 import Button from "../components/Button";
+import Input from "../components/custom/Input";
 
 const UlStyle = styled.ul`
   display: flex;
@@ -41,28 +42,45 @@ const ProductsPage = ({ products }) => {
     }
   };
 
+  //search bar implementation
+  const [query, setQuery] = useState("");
+
+  //Our search filter function
+  const searchFilter = (array) => {
+    return array.filter((el) => el.title.toLowerCase().includes(query));
+  };
+
+  //Applying our search filter function to our array of countries recieved from the API
+  const filtered = searchFilter(products);
+
+  //Handling the input on our search bar
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+  };
+
   return (
     <>
       <Header />
       <Center>
-        <Title>Сите производи</Title>
-        <ProductsGrid products={records} />
+        <Title>СИТЕ ПРОИЗВОДИ</Title>
+        <Input search={handleChange}/>
+        <ProductsGrid products={filtered} />
         <nav>
           <UlStyle>
             <li>
-              <Button href="#" onClick={prevPage}>
+              <Button href="#" onClick={prevPage} white>
                 {"<<"}
               </Button>
             </li>
             {numbers.map((n, i) => (
               <li key={i}>
-                <Button href="#" onClick={() => changeCurrentPage(n)}>
+                <Button href="#" onClick={() => changeCurrentPage(n)} white>
                   {n}
                 </Button>
               </li>
             ))}
             <li>
-              <Button href="#" onClick={nextPage}>
+              <Button href="#" onClick={nextPage} white>
                 {">>"}
               </Button>
             </li>

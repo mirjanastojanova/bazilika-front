@@ -14,8 +14,8 @@ const FeaturedProductImage = styled.img`
 `
 
 const Bg = styled.div`
-  background-color: #222;
-  color: white;
+  background-color: #EEF5FF;
+  color: #211e51;
   padding: 50px 0;
 `;
 
@@ -29,7 +29,7 @@ const Title = styled.h1`
 `;
 
 const Desc = styled.p`
-  color: #aaa;
+  color: #211e51;
   font-size: 1rem;
 `;
 
@@ -38,7 +38,7 @@ const ColumnsWrapper = styled.div`
   grid-template-columns: 1fr;
   gap: 40px;
   img {
-    max-width: 100%;
+    max-width: 50%;
     display: block;
     margin: 0 auto;
   }
@@ -56,6 +56,7 @@ const ColumnsWrapper = styled.div`
 const Column = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
 `;
 
 const ButtonsWrapper = styled.div`
