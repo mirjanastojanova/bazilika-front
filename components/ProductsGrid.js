@@ -16,7 +16,7 @@ const ProductsGrid = ({ products }) => {
   return (
     <Grid>
       {products?.length > 0 &&
-        products.map((product) => <ProductBox {...product} key={product.id} />)}
+        products.map((product) => <ProductBox {...product} key={product._id} />)}
     </Grid>
   );
 };

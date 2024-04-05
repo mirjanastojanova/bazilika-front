@@ -8,7 +8,12 @@ import { Product } from "../models/Product";
 import Actions from "../components/Actions";
 import { Action } from "../models/Action";
 
-export default function HomePage({ featuredProduct, newProducts, actions }) {
+export default function HomePage({
+  featuredProduct,
+  newProducts,
+  popularProducts,
+  actions,
+}) {
   return (
     <div>
       <Header />
@@ -26,6 +31,7 @@ export default function HomePage({ featuredProduct, newProducts, actions }) {
       />
       <Featured product={featuredProduct} />
       <Actions actions={actions} />
+      <NewProducts products={popularProducts} title={"ПОПУЛАРНИ"} />
       <NewProducts products={newProducts} />
       <BackToTopButton />
     </div>
@@ -37,10 +43,15 @@ export const getServerSideProps = async () => {
   const featuredProductId = "65fd89d5ea3e44a52d41421b";
   await mongooseConnect();
   const featuredProduct = await Product.findById(featuredProductId);
-  const newProducts = await Product.find({}, null, {
+  const newProducts = await Product.find({ newProductCheck: true }, null, {
     sort: { _id: -1 },
     limit: 10,
   }); // -1 to be in descending order
+  const popularProducts = await Product.find({ popular: true }, null, {
+    sort: { _id: -1 },
+    limit: 10,
+  }); // -1 to be in descending order
+  console.log(popularProducts);
   const actions = await Action.find({}, null, {
     sort: { _id: -1 },
     limit: 10,
@@ -49,6 +60,7 @@ export const getServerSideProps = async () => {
     props: {
       featuredProduct: JSON.parse(JSON.stringify(featuredProduct)),
       newProducts: JSON.parse(JSON.stringify(newProducts)),
+      popularProducts: JSON.parse(JSON.stringify(popularProducts)),
       actions: JSON.parse(JSON.stringify(actions)),
     },
   };
