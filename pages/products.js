@@ -63,7 +63,7 @@ const ProductsPage = ({ products }) => {
       <Header />
       <Center>
         <Title>СИТЕ ПРОИЗВОДИ</Title>
-        <Input search={handleChange}/>
+        <Input search={handleChange} />
         <ProductsGrid products={filtered} />
         <nav>
           <UlStyle>
