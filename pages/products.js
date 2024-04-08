@@ -96,7 +96,7 @@ const ProductsPage = ({ products, categories }) => {
 
   useEffect(() => {
     setMobileView(isMobileScreen);
-  }, []);
+  }, [isMobileScreen]);
 
   // Pages
   const prevPage = () => {
@@ -155,7 +155,7 @@ const ProductsPage = ({ products, categories }) => {
             <CatTitleContainer>
               <CatTitle>КАТЕГОРИИ</CatTitle>
               {isMobileScreen && (
-                <Button onClick={() => setMobileView((prev) => !prev)} catplus="true">
+                <Button onClick={() => setMobileView((prev) => !prev)} catplus>
                   +
                 </Button>
               )}
@@ -179,7 +179,7 @@ const ProductsPage = ({ products, categories }) => {
         <nav>
           <UlStyle>
             <li>
-              <Button href="#" onClick={prevPage} numbers="true">
+              <Button href="#" onClick={prevPage} numbers>
                 {"<<"}
               </Button>
             </li>
