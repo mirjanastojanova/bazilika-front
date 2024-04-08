@@ -15,7 +15,7 @@ const ColumnsWrapper = styled.div`
   grid-template-columns: 1fr;
   gap: 40px;
   margin-top: 40px;
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     grid-template-columns: 1.3fr 0.7fr;
   }
 `;
@@ -37,7 +37,7 @@ const ProductImageBox = styled.div`
     max-width: 80px;
     max-height: 80px;
   }
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     padding: 10px;
   }
 `;
@@ -60,7 +60,7 @@ const CartPage = () => {
   const [postalCode, setPostalCode] = useState("");
   const [streetAddress, setStreetAddress] = useState("");
   const [country, setCountry] = useState("");
-  const [isSuccess,setIsSuccess] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const router = useRouter();
 
@@ -75,10 +75,10 @@ const CartPage = () => {
   }, [cartProducts]);
 
   useEffect(() => {
-    if (typeof window === 'undefined') {
+    if (typeof window === "undefined") {
       return;
     }
-    if (window?.location.href.includes('success')) {
+    if (window?.location.href.includes("success")) {
       setIsSuccess(true);
       clearCart();
     }
@@ -169,7 +169,8 @@ const CartPage = () => {
                       </td>
                       <td>
                         {cartProducts.filter((id) => id === product._id)
-                          .length * product.price}ден.
+                          .length * product.price}
+                        ден.
                       </td>
                     </tr>
                   ))}
@@ -231,7 +232,12 @@ const CartPage = () => {
                 name="country"
                 onChange={(ev) => setCountry(ev.target.value)}
               />
-              <Button black block primary onClick={goToPayment}>
+              <Button
+                black="true"
+                block="true"
+                primary="true"
+                onClick={goToPayment}
+              >
                 Продолжи кон плаќање
               </Button>
             </Box>

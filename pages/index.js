@@ -30,9 +30,9 @@ export default function HomePage({
         theme="light"
       />
       <Featured product={featuredProduct} />
+      <NewProducts products={newProducts} />
       <Actions actions={actions} />
       <NewProducts products={popularProducts} title={"ПОПУЛАРНИ"} />
-      <NewProducts products={newProducts} />
       <BackToTopButton />
     </div>
   );

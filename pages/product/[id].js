@@ -54,8 +54,8 @@ const ProductPage = ({ product }) => {
               <Price>{product.price}ден.</Price>
               <div>
                 <Button
-                  flexButton
-                  block
+                  flexButton="true"
+                  block="true"
                   onClick={() => addProduct(product._id)}
                 >
                   <CartIcon />

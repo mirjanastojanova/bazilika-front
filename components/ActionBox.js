@@ -99,8 +99,8 @@ const ActionBox = ({ _id, title, description, price, images }) => {
               addProduct(_id);
               notify();
             }}
-            flexButton
-            block
+            flexButton="true"
+            block="true"
           >
             <CartIcon /> Додади во корпа
           </Button>

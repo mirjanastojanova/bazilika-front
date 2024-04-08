@@ -142,15 +142,18 @@ export default function Header() {
               {/* <NavLink href={"/categories"}>Categories</NavLink> */}
               {/* <NavLink href={"/account"}>Account</NavLink> */}
               <NavLink href={"/contact"}>КОНТАКТ</NavLink>
+              <NavLink href={"/cart"} flex>
+                <CartIcon /> ({cartProducts.length})
+              </NavLink>
             </StyledNav>
           </div>
-          
+
           <div>
-          <StyledNav>
-            <NavLink href={"/cart"} flex>
-              <CartIcon /> ({cartProducts.length})
-            </NavLink>
-          </StyledNav>
+            <StyledNav>
+              <NavLink href={"/cart"} flex>
+                <CartIcon /> ({cartProducts.length})
+              </NavLink>
+            </StyledNav>
             <CartAndBars>
               <LinkCart href={"/cart"}>
                 <NavButton flex>
