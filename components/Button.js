@@ -21,11 +21,25 @@ export const ButtonStyle = css`
       width: 100%;
     `}
   ${(props) =>
+    props.catplus &&
+    css`
+      background-color: inherit;
+      color: white;
+      font-size: 1.5rem;
+    `}
+  ${(props) =>
     props.white &&
     !props.outline &&
     css`
-      background-color: #001B79; 
+      background-color: #001b79;
       color: white;
+    `}
+    ${(props) =>
+    props.numbers &&
+    css`
+      background-color: white;
+      color: black;
+      font-weight: 700;
     `}
   ${(props) =>
     props.white &&
@@ -83,8 +97,8 @@ export const ButtonStyle = css`
     css`
       display: flex;
       justify-content: center;
-      background-color: #001B79;
-      border: 1px solid #001B79;
+      background-color: #001b79;
+      border: 1px solid #001b79;
       color: white;
       font-weight: 700;
       @media screen and (min-width: 768px) {
@@ -98,11 +112,7 @@ const StyledButton = styled.button`
 `;
 
 const Button = ({ children, ...rest }) => {
-  return (
-    <StyledButton{...rest}>
-      {children}
-    </StyledButton>
-  );
+  return <StyledButton {...rest}>{children}</StyledButton>;
 };
 
 export default Button;
