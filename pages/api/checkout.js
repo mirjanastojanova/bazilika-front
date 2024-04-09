@@ -54,6 +54,7 @@ const handle = async (req, res) => {
     streetAddress,
     country,
     paid: false,
+    delivered: false,
   });
 
   const session = await stripe.checkout.sessions.create({
