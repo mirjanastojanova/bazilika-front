@@ -96,7 +96,7 @@ const ProductsPage = ({ products, categories }) => {
 
   useEffect(() => {
     setMobileView(isMobileScreen);
-  }, [isMobileScreen]);
+  }, []);
 
   // Pages
   const prevPage = () => {
