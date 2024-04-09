@@ -94,10 +94,6 @@ const ProductsPage = ({ products, categories }) => {
 
   const isMobileScreen = useMediaQuery("(max-width:768px)");
 
-  useEffect(() => {
-    setMobileView(isMobileScreen);
-  }, [isMobileScreen]);
-
   // Pages
   const prevPage = () => {
     if (currentPage > 1) {
