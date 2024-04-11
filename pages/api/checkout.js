@@ -57,16 +57,16 @@ const handle = async (req, res) => {
     delivered: false,
   });
 
-  const session = await stripe.checkout.sessions.create({
-    line_items,
-    mode: "payment",
-    customer_email: email,
-    success_url: process.env.PUBLIC_URL + "/cart?success=true",
-    cancel_url: process.env.PUBLIC_URL + "/cart?canceled=true",
-    metadata: { orderId: orderDoc._id.toString() },
-  });
+  // const session = await stripe.checkout.sessions.create({
+  //   line_items,
+  //   mode: "payment",
+  //   customer_email: email,
+  //   success_url: process.env.PUBLIC_URL + "/cart?success=true",
+  //   cancel_url: process.env.PUBLIC_URL + "/cart?canceled=true",
+  //   metadata: { orderId: orderDoc._id.toString() },
+  // });
 
-  res.json({ url: session.url });
+  res.json({ success: true });
 };
 
 export default handle;

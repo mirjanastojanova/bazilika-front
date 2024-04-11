@@ -104,6 +104,9 @@ const CartPage = () => {
     if (response?.data?.url) {
       window.location = response.data.url;
     }
+    if (response.data.success === true) {
+      setIsSuccess(true);
+    }
   };
 
   let total = 0;
@@ -238,7 +241,7 @@ const CartPage = () => {
                 primary="true"
                 onClick={goToPayment}
               >
-                Продолжи кон плаќање
+                Порачај
               </Button>
             </Box>
           )}
