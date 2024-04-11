@@ -18,10 +18,6 @@ const ProductWrapper = styled.div`
     width: 100%;
     height: 280px;
   }
-  @media screen and (min-width: 992px) {
-    width: 80%;
-    height: 280px;
-  }
 `;
 
 const WhiteBox = styled(Link)`
