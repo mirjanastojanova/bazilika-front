@@ -137,7 +137,7 @@ export default function Header() {
           </div>
           <div>
             <StyledNav mobileNavActive={mobileNavActive}>
-              <NavLink href={"/"}>ДОМА</NavLink>
+              <NavLink href={"/"}>ПОЧЕТНА</NavLink>
               <NavLink href={"/products"}>ПРОИЗВОДИ</NavLink>
               {/* <NavLink href={"/categories"}>Categories</NavLink> */}
               {/* <NavLink href={"/account"}>Account</NavLink> */}

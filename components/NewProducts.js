@@ -2,10 +2,10 @@ import Center from "./Center";
 import ProductsGrid from "./ProductsGrid";
 import Title from "./Title";
 
-const NewProducts = ({ products, title }) => {
+const NewProducts = ({ products, title, color }) => {
   return (
     <Center>
-      {title ? <Title>{title}</Title> : <Title>НОВИ ПРОИЗВОДИ</Title>}
+      {title ? <Title color>{title}</Title> : <Title>НОВИ ПРОИЗВОДИ</Title>}
       <ProductsGrid products={products} />
     </Center>
   );
