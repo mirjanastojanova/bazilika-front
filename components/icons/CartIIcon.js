@@ -5,6 +5,8 @@ const CartIcon = ({ className = "w-6 h-6" }) => {
       viewBox="0 0 24 24"
       fill="currentColor"
       className={className}
+      width="24"
+      height="24"
     >
       <path
         fillRule="evenodd"
