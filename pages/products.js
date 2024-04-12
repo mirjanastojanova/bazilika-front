@@ -202,7 +202,6 @@ export async function getServerSideProps(req, res) {
   await mongooseConnect();
   const products = await Product.find({}, null, { sort: { _id: -1 } });
   const categories = await Category.find({}, null, { sort: { name: 1 } });
-  console.log(categories);
   return {
     props: {
       products: JSON.parse(JSON.stringify(products)),

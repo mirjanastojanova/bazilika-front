@@ -31,9 +31,11 @@ const StyledNav = styled.nav`
       ? `
     display: flex;
     flex-direction: column;
-    margin-top:50px;
-    height: 200px;
-    border-bottom:1px solid #211e51;
+    margin-top:127px;
+    height: 150px;
+    border-top:1px solid #dddddd;
+    border-bottom:1px solid #dddddd;
+    padding-top: 0;
   `
       : `
     display: none;
@@ -44,7 +46,7 @@ const StyledNav = styled.nav`
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 70px 20px 20px;
+  padding: 20px;
   background-color: white;
   @media screen and (min-width: 768px) {
     display: flex;
@@ -57,10 +59,12 @@ const NavLink = styled(Link)`
   color: #211e51;
   font-weight: 700;
   text-decoration: none;
-  padding: 10px 0;
+  padding: 10px 10px;
   align-content: center;
+  border-left: 1px solid #dddddd;
   @media screen and (min-width: 768px) {
     padding: 0;
+    border: 0;
   }
   ${(props) =>
     props.flex &&

@@ -11,10 +11,10 @@ import "react-toastify/dist/ReactToastify.css";
 const FeaturedProductImage = styled.img`
   width: auto;
   height: auto;
-`
+`;
 
 const Bg = styled.div`
-  background-color: #EEF5FF;
+  background-color: #eef5ff;
   color: #211e51;
   padding: 50px 0;
 `;
@@ -23,7 +23,7 @@ const Title = styled.h1`
   margin: 0;
   font-weight: normal;
   font-size: 1.5rem;
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     font-size: 3rem;
   }
 `;
@@ -97,10 +97,7 @@ const Featured = ({ product }) => {
             </div>
           </Column>
           <Column>
-            <FeaturedProductImage
-              src={product.images?.[0]}
-              alt=""
-            />
+            <FeaturedProductImage src={product.images?.[0]} alt="" />
           </Column>
         </ColumnsWrapper>
       </Center>

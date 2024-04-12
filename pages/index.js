@@ -32,11 +32,7 @@ export default function HomePage({
       <Featured product={featuredProduct} />
       <NewProducts products={newProducts} />
       <Actions actions={actions} />
-      <NewProducts
-        products={popularProducts}
-        title={"ПОПУЛАРНИ"}
-        color
-      />
+      <NewProducts products={popularProducts} title={"ПОПУЛАРНИ"} color />
       <BackToTopButton />
     </div>
   );
@@ -44,9 +40,9 @@ export default function HomePage({
 
 // using it as a function from Next JS as you need data on request
 export const getServerSideProps = async () => {
-  const featuredProductId = "65fd89d5ea3e44a52d41421b";
   await mongooseConnect();
-  const featuredProduct = await Product.findById(featuredProductId);
+  const featuredProduct = await Product.findOne({ featured: true }, null, {});
+  console.log(featuredProduct.title);
   const newProducts = await Product.find({ newProductCheck: true }, null, {
     sort: { _id: -1 },
     limit: 10,
@@ -55,7 +51,6 @@ export const getServerSideProps = async () => {
     sort: { _id: -1 },
     limit: 10,
   }); // -1 to be in descending order
-  console.log(popularProducts);
   const actions = await Action.find({}, null, {
     sort: { _id: -1 },
     limit: 10,
