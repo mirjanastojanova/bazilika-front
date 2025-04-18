@@ -34,13 +34,14 @@ export default  function PricelistTable(){
 
     return <Center>
         <Title>Ценовник</Title>
+        <p>Цените се изразени во денари.</p>
         <table border="1" cellPadding="6">
         <thead>
           <tr>
             <th>Реден</th>
             <th>Назив</th>
-            <th>Цена М</th>
-            <th>Пак</th>
+            <th>Цена</th>
+            {/* <th>Пак</th> */}
           </tr>
         </thead>
         <tbody>
@@ -49,7 +50,7 @@ export default  function PricelistTable(){
               <td>{item.reden}</td>
               <td>{item.naziv}</td>
               <td>{item.cenam}</td>
-              <td>{item.pak}</td>
+              {/* <td>{item.pak}</td> */}
             </tr>
           ))}
         </tbody>
