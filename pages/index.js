@@ -7,6 +7,7 @@ import { mongooseConnect } from "../lib/mongoose";
 import { Product } from "../models/Product";
 import Actions from "../components/Actions";
 import { Action } from "../models/Action";
+import PricelistTable from "../components/PricelistTable";
 
 export default function HomePage({
   featuredProduct,
@@ -17,7 +18,8 @@ export default function HomePage({
   return (
     <div>
       <Header />
-      <ToastContainer
+      <PricelistTable />
+      {/* <ToastContainer
         position="top-right"
         autoClose={1000}
         hideProgressBar={true}
@@ -32,7 +34,7 @@ export default function HomePage({
       <Featured product={featuredProduct} />
       <NewProducts products={newProducts} />
       <Actions actions={actions} />
-      <NewProducts products={popularProducts} title={"ПОПУЛАРНИ"} color />
+      <NewProducts products={popularProducts} title={"ПОПУЛАРНИ"} color /> */}
       <BackToTopButton />
     </div>
   );

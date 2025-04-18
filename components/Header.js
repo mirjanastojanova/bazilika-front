@@ -142,7 +142,7 @@ export default function Header() {
           <div>
             <StyledNav mobileNavActive={mobileNavActive}>
               <NavLink href={"/"}>ПОЧЕТНА</NavLink>
-              <NavLink href={"/products"}>ПРОИЗВОДИ</NavLink>
+              {/* <NavLink href={"/products"}>ПРОИЗВОДИ</NavLink> */}
               {/* <NavLink href={"/categories"}>Categories</NavLink> */}
               {/* <NavLink href={"/account"}>Account</NavLink> */}
               <NavLink href={"/contact"}>КОНТАКТ</NavLink>
@@ -150,7 +150,7 @@ export default function Header() {
           </div>
 
           <div>
-            <StyledNav>
+            {/* <StyledNav>
               <NavLink href={"/cart"} flex>
                 <CartIcon /> ({cartProducts.length})
               </NavLink>
@@ -164,7 +164,7 @@ export default function Header() {
               <NavButton onClick={() => setMobileNavActive((prev) => !prev)}>
                 <BarsIcon />
               </NavButton>
-            </CartAndBars>
+            </CartAndBars> */}
           </div>
         </Wrapper>
       </Center>
